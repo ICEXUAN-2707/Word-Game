@@ -1,4 +1,4 @@
-# 初中英语单词卡
+# Word-Game
 
 这是一个静态 PWA 单词卡页面，可部署到 GitHub Pages。
 
