@@ -54,13 +54,28 @@
     .iconbtn.active { background: #ffe9e5; color: var(--accent); }
     .stage { position: relative; min-height: 0; overflow: hidden; }
     .deck {
-      height: 100%; overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none;
-      overscroll-behavior: contain; scroll-behavior: smooth;
+      position: relative; height: 100%; overflow: hidden; scrollbar-width: none;
+      overscroll-behavior: contain; touch-action: pan-y;
     }
     .deck::-webkit-scrollbar { display: none; }
     .slide {
-      height: calc(100dvh - 64px); scroll-snap-align: start; display: grid; place-items: center;
+      position: absolute; inset: 0; height: calc(100dvh - 64px); display: grid; place-items: center;
       padding: 22px 78px 28px 18px;
+      opacity: 0; pointer-events: none;
+      transform: translate3d(0, 0, 0);
+      transition: transform .34s cubic-bezier(.2,.8,.2,1), opacity .24s ease;
+      will-change: transform, opacity;
+    }
+    .slide.active { opacity: 1; pointer-events: auto; }
+    .slide.near { opacity: .35; }
+    .slide.far { opacity: 0; }
+    .slide[data-offset="-2"] { transform: translate3d(0, -122%, 0) scale(.9); }
+    .slide[data-offset="-1"] { transform: translate3d(0, -104%, 0) scale(.94); }
+    .slide[data-offset="0"] { transform: translate3d(0, 0, 0) scale(1); }
+    .slide[data-offset="1"] { transform: translate3d(0, 104%, 0) scale(.94); }
+    .slide[data-offset="2"] { transform: translate3d(0, 122%, 0) scale(.9); }
+    .slide.dragging {
+      transition: none;
     }
     .card-wrap { perspective: 1200px; width: min(560px, 100%); aspect-ratio: 4 / 5.1; max-height: min(72dvh, 700px); }
     .card {
@@ -188,8 +203,8 @@
       <p>像刷短视频一样学习，每个词会在队列中出现 5 遍。</p>
       <div class="steps">
         <div class="step"><div class="num">1</div><p>点击卡片翻面，先看英文，再看中文。</p></div>
-        <div class="step"><div class="num">2</div><p>翻面后双击卡片，记录“忘记了”，页面会给出动画提示。</p></div>
-        <div class="step"><div class="num">3</div><p>向下滑到下一个词，点星标加入重点单词本。</p></div>
+        <div class="step"><div class="num">2</div><p>空格翻牌，向下键切到下一张。</p></div>
+        <div class="step"><div class="num">3</div><p>翻面后双击或按回车，记录“忘记了”；点星标加入重点单词本。</p></div>
       </div>
       <button class="primary" id="startBtn">开始背词</button>
     </div>
@@ -217,6 +232,10 @@
     let deck = [];
     let current = 0;
     let toastTimer = 0;
+    let wheelLock = false;
+    let isAnimating = false;
+    let touchStartY = 0;
+    let touchDeltaY = 0;
 
     function shuffle(items) {
       const arr = [...items];
@@ -234,28 +253,39 @@
       }
       deck = random ? shuffle(base) : base;
       current = 0;
-      renderDeck();
+      renderVirtualDeck();
       updateStats();
     }
 
-    function renderDeck() {
-      els.deck.innerHTML = deck.map((word, index) => `
-        <section class="slide" data-index="${index}">
+    function slideMarkup(word, index, offset) {
+      const state = offset === 0 ? 'active' : Math.abs(offset) === 1 ? 'near' : 'far';
+      return `
+        <section class="slide ${state}" data-index="${index}" data-offset="${offset}">
           <div class="card-wrap">
-            <article class="card" data-id="${word.id}">
+            <article class="card" data-id="${word.id}" data-active="${offset === 0}">
               <div class="face front">
                 <div class="meta"><span>${word.book.replace('人教版','')}</span><span>${word.sheet} · ${word.round}/${repeatTimes}</span></div>
                 <div class="word">${escapeHtml(word.english)}</div>
                 <div class="hint">点击翻牌</div>
               </div>
               <div class="face back">
-                <div class="meta"><span>${word.book.replace('人教版','')}</span><span>双击：忘记了</span></div>
+                <div class="meta"><span>${word.book.replace('人教版','')}</span><span>双击 / Enter：忘记了</span></div>
                 <div class="meaning">${escapeHtml(word.chinese)}</div>
                 <div class="hint">${escapeHtml(word.english)}</div>
               </div>
             </article>
           </div>
-        </section>`).join('');
+        </section>`;
+    }
+
+    function renderVirtualDeck() {
+      const slides = [];
+      for (let offset = -2; offset <= 2; offset++) {
+        const index = current + offset;
+        if (index < 0 || index >= deck.length) continue;
+        slides.push(slideMarkup(deck[index], index, offset));
+      }
+      els.deck.innerHTML = slides.join('');
       els.deck.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', () => card.classList.toggle('flipped'));
         card.addEventListener('dblclick', event => {
@@ -263,27 +293,60 @@
           if (card.classList.contains('flipped')) markForgot(card.dataset.id, card);
         });
       });
-      els.deck.scrollTop = 0;
-      setTimeout(syncCurrent, 50);
     }
 
     function escapeHtml(text) {
       return String(text).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
     }
 
-    function syncCurrent() {
-      const top = els.deck.scrollTop;
-      const h = els.deck.clientHeight || 1;
-      current = Math.min(deck.length - 1, Math.max(0, Math.round(top / h)));
+    function setCurrent(index) {
+      const next = Math.min(deck.length - 1, Math.max(0, index));
+      if (next === current) return;
+      current = next;
+      renderVirtualDeck();
       updateStats();
     }
 
+    function transformForOffset(offset) {
+      if (offset <= -2) return 'translate3d(0, -122%, 0) scale(.9)';
+      if (offset === -1) return 'translate3d(0, -104%, 0) scale(.94)';
+      if (offset === 0) return 'translate3d(0, 0, 0) scale(1)';
+      if (offset === 1) return 'translate3d(0, 104%, 0) scale(.94)';
+      return 'translate3d(0, 122%, 0) scale(.9)';
+    }
+
+    function opacityForOffset(offset) {
+      if (offset === 0) return '1';
+      if (Math.abs(offset) === 1) return '.35';
+      return '0';
+    }
+
     function go(delta) {
-      const next = Math.min(deck.length - 1, Math.max(0, current + delta));
-      els.deck.scrollTo({ top: next * els.deck.clientHeight, behavior: 'smooth' });
+      if (isAnimating) return;
+      const direction = delta > 0 ? 1 : -1;
+      const next = Math.min(deck.length - 1, Math.max(0, current + direction));
+      if (next === current) return;
+      isAnimating = true;
+      els.deck.querySelectorAll('.slide').forEach(slide => {
+        const offset = Number(slide.dataset.offset);
+        const shifted = offset - direction;
+        slide.style.transform = transformForOffset(shifted);
+        slide.style.opacity = opacityForOffset(shifted);
+        slide.style.pointerEvents = 'none';
+      });
+      setTimeout(() => {
+        current = next;
+        renderVirtualDeck();
+        updateStats();
+        isAnimating = false;
+      }, 260);
     }
 
     function currentWord() { return deck[current] || WORDS[0]; }
+
+    function currentCard() {
+      return els.deck.querySelector('.card[data-active="true"]');
+    }
 
     function updateStats() {
       const word = currentWord();
@@ -329,7 +392,7 @@
     }
 
     function markCurrentForgot() {
-      const card = els.deck.querySelector(`.slide[data-index="${current}"] .card`);
+      const card = currentCard();
       if (card) {
         card.classList.add('flipped');
         markForgot(currentWord().id, card);
@@ -368,7 +431,24 @@
       }));
     }
 
-    els.deck.addEventListener('scroll', () => requestAnimationFrame(syncCurrent), { passive: true });
+    els.deck.addEventListener('wheel', event => {
+      event.preventDefault();
+      if (wheelLock || Math.abs(event.deltaY) < 18) return;
+      wheelLock = true;
+      go(event.deltaY > 0 ? 1 : -1);
+      setTimeout(() => wheelLock = false, 260);
+    }, { passive: false });
+    els.deck.addEventListener('touchstart', event => {
+      touchStartY = event.touches[0].clientY;
+      touchDeltaY = 0;
+    }, { passive: true });
+    els.deck.addEventListener('touchmove', event => {
+      touchDeltaY = event.touches[0].clientY - touchStartY;
+    }, { passive: true });
+    els.deck.addEventListener('touchend', () => {
+      if (Math.abs(touchDeltaY) > 48) go(touchDeltaY < 0 ? 1 : -1);
+      touchDeltaY = 0;
+    });
     document.getElementById('nextBtn').addEventListener('click', () => go(1));
     document.getElementById('prevBtn').addEventListener('click', () => go(-1));
     document.getElementById('favBtn').addEventListener('click', toggleFav);
@@ -386,9 +466,13 @@
     document.addEventListener('keydown', event => {
       if (event.key === 'ArrowDown' || event.key === 'PageDown') go(1);
       if (event.key === 'ArrowUp' || event.key === 'PageUp') go(-1);
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        markCurrentForgot();
+      }
       if (event.key === ' ') {
         event.preventDefault();
-        const card = els.deck.querySelector(`.slide[data-index="${current}"] .card`);
+        const card = currentCard();
         if (card) card.classList.toggle('flipped');
       }
       if (event.key.toLowerCase() === 'f') toggleFav();
