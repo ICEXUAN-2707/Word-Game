@@ -1,0 +1,549 @@
+{
+  "人教版七年级上册英语单词背诵默写表.xls": {
+    "sheets": [
+      [
+        "Starter Unit 1",
+        31
+      ],
+      [
+        "Starter Unit 2",
+        24
+      ],
+      [
+        "Starter Unit 3",
+        22
+      ],
+      [
+        "Unit 1",
+        53
+      ],
+      [
+        "Unit 2",
+        40
+      ],
+      [
+        "Unit 3",
+        51
+      ],
+      [
+        "Unit 4",
+        33
+      ],
+      [
+        "Unit 5",
+        44
+      ],
+      [
+        "Unit 6",
+        41
+      ],
+      [
+        "Unit 7",
+        42
+      ],
+      [
+        "Unit 8",
+        42
+      ],
+      [
+        "Unit 9",
+        32
+      ]
+    ],
+    "words": 422,
+    "sample": [
+      {
+        "english": "good",
+        "chinese": "adj.好的",
+        "book": "人教版七年级上册英语单词背诵默写表.xls",
+        "sheet": "Starter Unit 1",
+        "row": 3
+      },
+      {
+        "english": "morning",
+        "chinese": "n.早晨;上午",
+        "book": "人教版七年级上册英语单词背诵默写表.xls",
+        "sheet": "Starter Unit 1",
+        "row": 4
+      },
+      {
+        "english": "Good morning !",
+        "chinese": "早上好！",
+        "book": "人教版七年级上册英语单词背诵默写表.xls",
+        "sheet": "Starter Unit 1",
+        "row": 5
+      },
+      {
+        "english": "hi",
+        "chinese": "interj.(用于打招呼)嗨;喂",
+        "book": "人教版七年级上册英语单词背诵默写表.xls",
+        "sheet": "Starter Unit 1",
+        "row": 6
+      },
+      {
+        "english": "hello",
+        "chinese": "interj.你好;喂",
+        "book": "人教版七年级上册英语单词背诵默写表.xls",
+        "sheet": "Starter Unit 1",
+        "row": 7
+      },
+      {
+        "english": "afternoon",
+        "chinese": "n.下午",
+        "book": "人教版七年级上册英语单词背诵默写表.xls",
+        "sheet": "Starter Unit 1",
+        "row": 8
+      },
+      {
+        "english": "Good afternoon !",
+        "chinese": "下午好！",
+        "book": "人教版七年级上册英语单词背诵默写表.xls",
+        "sheet": "Starter Unit 1",
+        "row": 9
+      },
+      {
+        "english": "evening",
+        "chinese": "n.晚上;傍晚",
+        "book": "人教版七年级上册英语单词背诵默写表.xls",
+        "sheet": "Starter Unit 1",
+        "row": 10
+      }
+    ]
+  },
+  "人教版七年级下册英语单词背诵默写表.xlsx": {
+    "sheets": [
+      [
+        "Unit 1",
+        46
+      ],
+      [
+        "Unit 2",
+        44
+      ],
+      [
+        "Unit 3",
+        44
+      ],
+      [
+        "Unit 4",
+        45
+      ],
+      [
+        "Unit 5",
+        44
+      ],
+      [
+        "Unit 6",
+        44
+      ],
+      [
+        "Unit 7",
+        44
+      ],
+      [
+        "Unit 8",
+        44
+      ],
+      [
+        "Unit 9",
+        44
+      ],
+      [
+        "Unit 10",
+        45
+      ],
+      [
+        "Unit 11",
+        44
+      ],
+      [
+        "Unit 12",
+        47
+      ]
+    ],
+    "words": 487,
+    "sample": [
+      {
+        "english": "guitar",
+        "chinese": "n.吉他",
+        "book": "人教版七年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 3
+      },
+      {
+        "english": "sing",
+        "chinese": "v.唱;唱歌",
+        "book": "人教版七年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 4
+      },
+      {
+        "english": "swim",
+        "chinese": "v.＆n.游泳",
+        "book": "人教版七年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 5
+      },
+      {
+        "english": "dance",
+        "chinese": "v.＆n.跳舞;舞蹈",
+        "book": "人教版七年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 6
+      },
+      {
+        "english": "draw",
+        "chinese": "v.画",
+        "book": "人教版七年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 7
+      },
+      {
+        "english": "chess",
+        "chinese": "n.国际象棋",
+        "book": "人教版七年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 8
+      },
+      {
+        "english": "play chess",
+        "chinese": "下国际象棋",
+        "book": "人教版七年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 9
+      },
+      {
+        "english": "speak",
+        "chinese": "v.说(某种语言);说话",
+        "book": "人教版七年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 10
+      }
+    ]
+  },
+  "人教版九年级全一册英语单词背诵默写表.xls": {
+    "sheets": [
+      [
+        "Unit 1",
+        41
+      ],
+      [
+        "Unit 2",
+        50
+      ],
+      [
+        "Unit 3",
+        43
+      ],
+      [
+        "Unit 4",
+        47
+      ],
+      [
+        "Unit 5",
+        56
+      ],
+      [
+        "Unit 6",
+        66
+      ],
+      [
+        "Unit 7",
+        32
+      ],
+      [
+        "Unit 8",
+        49
+      ],
+      [
+        "Unit 9",
+        50
+      ],
+      [
+        "Unit 10",
+        53
+      ],
+      [
+        "Unit 11",
+        52
+      ],
+      [
+        "Unit 12",
+        48
+      ],
+      [
+        "Unit 13",
+        52
+      ],
+      [
+        "Unit 14",
+        50
+      ]
+    ],
+    "words": 659,
+    "sample": [
+      {
+        "english": "textbook",
+        "chinese": "n. 教科书；课本",
+        "book": "人教版九年级全一册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 3
+      },
+      {
+        "english": "conversation",
+        "chinese": "n. 交谈；谈话",
+        "book": "人教版九年级全一册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 4
+      },
+      {
+        "english": "aloud",
+        "chinese": "adv. 大声地；出声地",
+        "book": "人教版九年级全一册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 5
+      },
+      {
+        "english": "pronunciation",
+        "chinese": "n. 发音；读音",
+        "book": "人教版九年级全一册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 6
+      },
+      {
+        "english": "sentence",
+        "chinese": "n. 句子",
+        "book": "人教版九年级全一册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 7
+      },
+      {
+        "english": "patient",
+        "chinese": "adj. 有耐心的 n. 病人",
+        "book": "人教版九年级全一册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 8
+      },
+      {
+        "english": "expression",
+        "chinese": "n. 表情；表示；表达方式",
+        "book": "人教版九年级全一册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 9
+      },
+      {
+        "english": "discover",
+        "chinese": "v. 发现；发觉",
+        "book": "人教版九年级全一册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 10
+      }
+    ]
+  },
+  "人教版八年级上册英语单词背诵默写表.xls": {
+    "sheets": [
+      [
+        "Unit 1",
+        54
+      ],
+      [
+        "Unit 2",
+        46
+      ],
+      [
+        "Unit 3",
+        49
+      ],
+      [
+        "Unit 4",
+        54
+      ],
+      [
+        "Unit 5",
+        49
+      ],
+      [
+        "Unit 6",
+        52
+      ],
+      [
+        "Unit 7",
+        49
+      ],
+      [
+        "Unit 8",
+        43
+      ],
+      [
+        "Unit 9",
+        51
+      ],
+      [
+        "Unit 10",
+        41
+      ]
+    ],
+    "words": 462,
+    "sample": [
+      {
+        "english": "anyone",
+        "chinese": "pron.任何人",
+        "book": "人教版八年级上册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 3
+      },
+      {
+        "english": "anywhere",
+        "chinese": "adv.在任何地方",
+        "book": "人教版八年级上册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 4
+      },
+      {
+        "english": "wonderful",
+        "chinese": "adj.精彩的；绝妙的",
+        "book": "人教版八年级上册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 5
+      },
+      {
+        "english": "few",
+        "chinese": "adj.& pron. 不多；很少",
+        "book": "人教版八年级上册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 6
+      },
+      {
+        "english": "quite a few",
+        "chinese": "相当多；不少",
+        "book": "人教版八年级上册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 7
+      },
+      {
+        "english": "most",
+        "chinese": "adj.&adv.&pron. 最多；大多数",
+        "book": "人教版八年级上册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 8
+      },
+      {
+        "english": "something",
+        "chinese": "pron.某事；某物",
+        "book": "人教版八年级上册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 9
+      },
+      {
+        "english": "nothing",
+        "chinese": "pron.没有什么；没有一件东西",
+        "book": "人教版八年级上册英语单词背诵默写表.xls",
+        "sheet": "Unit 1",
+        "row": 10
+      }
+    ]
+  },
+  "人教版八年级下册英语单词背诵默写表.xlsx": {
+    "sheets": [
+      [
+        "Unit 1",
+        66
+      ],
+      [
+        "Unit 2",
+        66
+      ],
+      [
+        "Unit 3",
+        66
+      ],
+      [
+        "Unit 4",
+        66
+      ],
+      [
+        "Unit 5",
+        66
+      ],
+      [
+        "Unit 6",
+        66
+      ],
+      [
+        "Unit 7",
+        96
+      ],
+      [
+        "Unit 8",
+        66
+      ],
+      [
+        "Unit 9",
+        66
+      ],
+      [
+        "Unit 10",
+        66
+      ]
+    ],
+    "words": 508,
+    "sample": [
+      {
+        "english": "matter",
+        "chinese": "n.问题;事情",
+        "book": "人教版八年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 3
+      },
+      {
+        "english": "What' s the matter?",
+        "chinese": "怎么了?出什么事了?",
+        "book": "人教版八年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 4
+      },
+      {
+        "english": "sore",
+        "chinese": "adj.疼痛的;酸痛的",
+        "book": "人教版八年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 5
+      },
+      {
+        "english": "have a cold",
+        "chinese": "感冒",
+        "book": "人教版八年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 6
+      },
+      {
+        "english": "stomachache",
+        "chinese": "n.胃痛;腹痛",
+        "book": "人教版八年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 7
+      },
+      {
+        "english": "have a stomachache",
+        "chinese": "胃痛",
+        "book": "人教版八年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 8
+      },
+      {
+        "english": "foot",
+        "chinese": "n.脚;足",
+        "book": "人教版八年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 9
+      },
+      {
+        "english": "neck",
+        "chinese": "n.颈;脖子",
+        "book": "人教版八年级下册英语单词背诵默写表.xlsx",
+        "sheet": "Unit 1",
+        "row": 10
+      }
+    ]
+  }
+}
