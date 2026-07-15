@@ -22,8 +22,8 @@ http://127.0.0.1:8766/
 4. `Source` 选择 `Deploy from a branch`。
 5. `Branch` 选择 `main`，目录选择 `/root`，保存。
 
-发布地址通常是：
+发布地址：
 
 ```text
-https://你的用户名.github.io/word-cards/
+https://icexuan-2707.github.io/Word-Game/
 ```
